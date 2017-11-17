@@ -5,8 +5,10 @@
   "homepage": "https://jtprather.github.io/glowing-carnival",
   "dependencies": {
     "gh-pages": "^1.0.0",
+    "jquery": "^3.2.1",
     "react": "^16.1.0",
     "react-dom": "^16.1.0",
+    "react-linkify": "^0.2.1",
     "react-scripts": "1.0.17"
   },
   "scripts": {
@@ -16,5 +18,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "eslint-config-google": "^0.9.1"
   }
 }
