@@ -6,17 +6,20 @@ class Tweet extends React.Component {
     render() {
         return (
             <div className="Tweet">
-                <div className="Tweet-title">
+                <div className="Tweet-content">
                     <img className="Tweet-avatar" src={this.props.profileImage} alt={this.props.username} />
                     <span><strong>{this.props.username}</strong></span>
+                    <span>&rlm;</span>
+                    <span>&nbsp;</span>
                     <span>@{this.props.screenname}</span>
-                    <div>{this.props.tweetDate}</div>
+                    <span>&nbsp;</span>
+                    <small>{this.props.tweetDate}</small>
                 </div>
-                <div>
+                <div className="Tweet-content">
                     <p><Linkify>{this.props.tweetContent}</Linkify></p>
                 </div>
-                <div>
-                    <span>Retweets:{this.props.retweets}</span>
+                <div className="Tweet-Content Tweet-retweets">
+                    <small>Retweets:{this.props.retweets}</small>
                 </div>
             </div>
         );

@@ -24,15 +24,28 @@
 .Tweet {
   text-align: left;
   padding: 40px;
+  border-bottom: 1px solid #222;
+  cursor: pointer;
 }
 
-.Tweet-title {
+.Tweet-content {
+  font-size: 10pt;
   margin-left: 58px;
+  position: relative;
+  display: inline-flex;
+}
 
+.Tweet-retweets {
+  margin-left: 58px;
 }
 
 .Tweet-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   margin-left: -58px;
+  float: left;
+  position: absolute;
 }
 
 .Tweet-content {
