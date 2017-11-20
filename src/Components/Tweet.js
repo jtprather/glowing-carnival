@@ -9,7 +9,6 @@ class Tweet extends React.Component {
                 <div className="Tweet-content">
                     <img className="Tweet-avatar" src={this.props.profileImage} alt={this.props.username} />
                     <span><strong>{this.props.username}</strong></span>
-                    <span>&rlm;</span>
                     <span>&nbsp;</span>
                     <span>@{this.props.screenname}</span>
                     <span>&nbsp;</span>

@@ -10,8 +10,11 @@ export default class TweetBox extends React.Component {
         super();
 
         this.state = {
-            tweets: []
+            tweets: [],
+            searchTerm: ''
         };
+
+        this.searchUpdated = this._searchUpdated.bind(this);
     }
 
     componentWillMount() {
@@ -27,26 +30,35 @@ export default class TweetBox extends React.Component {
     }
 
     render() {
-        const tweets = this._getTweets();
+        let tweets = this._getTweets();
+        let filteredTweets = tweets.filter((tweet) => {
+            return tweet.tweetContent.search(this.state.searchTerm) !== -1;
+        });
         return (
             <div className="App">
                 <div>
                     <h2>Search Tweets here:</h2>
-
+                    <input type="text"
+                        value={this.state.searchTerm}
+                        onChange={this._searchUpdated.bind(this)} />
                 </div>               
                 <h2 className="Tweet">Tweets</h2>
                 <div>
-                    {tweets}    
+                    {filteredTweets.map((tweet) => {
+                        return <Tweet {...tweet}
+                            key = {tweet.tweetId}/>
+                    })}
                 </div>
             </div>
         );
     }
 
+    _searchUpdated (term) {
+        this.setState({searchTerm: term.target.value})
+    }
+
     _getTweets() {
-        return this.state.tweets.map((tweet) => {
-            return <Tweet {...tweet}
-                key={tweet.tweetId} />
-        });
+        return this.state.tweets
     }
 
     _fetchTweets() {
