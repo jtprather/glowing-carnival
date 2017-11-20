@@ -54,7 +54,7 @@ export default class TweetBox extends React.Component {
             dataType: 'json',
             crossDomain: true,
             method: 'GET',
-            url: 'http://twittercodeapi20171119112742.azurewebsites.net/api/tweets',
+            url: 'https://twittercodeapi20171119112742.azurewebsites.net/api/tweets',
             success: (tweets) => {
                 this.setState({ tweets })
             }
