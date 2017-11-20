@@ -3,8 +3,7 @@ import React from 'react';
 import jQuery from 'jquery';
 
 import Tweet from './Tweet';
-import logo from './salesForceLogo.png';
-import './App.css';
+import '../App.css';
 
 export default class TweetBox extends React.Component {
     constructor() {
@@ -28,21 +27,16 @@ export default class TweetBox extends React.Component {
     }
 
     render() {
-
+        const tweets = this._getTweets();
         return (
             <div className="App">
-                <header className="App-header">
-                    <img src={logo} className="App-logo" alt="logo" />
-                    <h1 className="App-title">Welcome to SalesForce Tweet Code Challenge</h1>
-                </header>
-                <h3 className="App-title">
-                    this is another test of the commit/push build system
-                </h3>
-                <div className="App">
-                    <h2>Tweets</h2>
-                    <div>
-                        {tweets}    
-                    </div>
+                <div>
+                    <h2>Search Tweets here:</h2>
+
+                </div>               
+                <h2 className="Tweet">Tweets</h2>
+                <div>
+                    {tweets}    
                 </div>
             </div>
         );
@@ -57,8 +51,10 @@ export default class TweetBox extends React.Component {
 
     _fetchTweets() {
         jQuery.ajax({
+            dataType: 'json',
+            crossDomain: true,
             method: 'GET',
-            url: 'tweets.json',
+            url: 'http://twittercodeapi20171119112742.azurewebsites.net/api/tweets',
             success: (tweets) => {
                 this.setState({ tweets })
             }

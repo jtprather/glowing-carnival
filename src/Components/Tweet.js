@@ -13,7 +13,7 @@ class Tweet extends React.Component {
                     <span>&nbsp;</span>
                     <span>@{this.props.screenname}</span>
                     <span>&nbsp;</span>
-                    <small>{this.props.tweetDate}</small>
+                    <small className="Tweet-Time">&nbsp;{this._getFormattedTweetDate()}</small>
                 </div>
                 <div className="Tweet-content">
                     <p><Linkify>{this.props.tweetContent}</Linkify></p>
@@ -24,6 +24,15 @@ class Tweet extends React.Component {
             </div>
         );
     }
+
+    _getFormattedTweetDate() {
+        var tweetDate = new Date(this.props.tweetDate);
+        var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+        tweetDate = months[tweetDate.getMonth()] + " " + tweetDate.getDate();
+        return (tweetDate);
+    }
 }
+
+
 
 export default Tweet;

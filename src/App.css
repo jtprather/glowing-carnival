@@ -28,6 +28,13 @@
   cursor: pointer;
 }
 
+.Tweet-Time::before {
+  content: "\00b7";
+}
+.Tweet-Time {
+  color: #657786;
+}
+
 .Tweet-content {
   font-size: 10pt;
   margin-left: 58px;
